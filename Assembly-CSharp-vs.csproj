@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{86AC090D-6546-5734-4E5E-4CD28F89FD49}</ProjectGuid>
+	<ProjectGuid>{3AF7A411-4DE7-4F99-0E61-2EBF2E3AD558}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -62,8 +62,8 @@
      <Compile Include="Assets\Scripts\Managers\FactionManager.cs" />
      <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\Map\MapCamera.cs" />
+     <Compile Include="Assets\Scripts\Map\MapObject.cs" />
      <Compile Include="Assets\Scripts\Messenger\Callback.cs" />
-     <Compile Include="Assets\Scripts\Messenger\MapObject.cs" />
      <Compile Include="Assets\Scripts\Messenger\Messenger.cs" />
      <Compile Include="Assets\Scripts\ObjTag.cs" />
      <Compile Include="Assets\Scripts\OrbitShip.cs" />

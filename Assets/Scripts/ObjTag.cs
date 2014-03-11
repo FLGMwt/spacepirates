@@ -4,19 +4,26 @@ using System.Collections;
 //-------------
 // Displays a simple text based tag and dot on the screen
 //-------------
-public class ObjTag : MonoBehaviour {
+public class ObjTag : MonoBehaviour 
+{
 
 	public Color textColor;
 	bool display = true;
 	public string text;
 	public Camera cam;
 	Vector3 loc;
+
+	bool mapTag = false;
+
 	void Start()
 	{
 		if (cam == null)
 		{
 			cam = (Camera)GameObject.Find("Main Camera").GetComponent("Camera");
 		}
+
+		Messenger.AddListener("ShowMap", ShowMapTag);
+		Messenger.AddListener("HideMap", HideMapTag);
 	}
 
 	void LateUpdate()
@@ -26,8 +33,6 @@ public class ObjTag : MonoBehaviour {
 	// Use this for initialization
 	void OnGUI()
 	{
-		
-		
 		if (display)
 		{
 			GUI.contentColor = textColor;
@@ -42,4 +47,23 @@ public class ObjTag : MonoBehaviour {
 		}//display
 		
 	}//onGui
+
+	void ShowMapTag()
+	{
+		if (mapTag) display = true;
+		else
+		{
+			display = false;
+		}
+	}
+
+	void HideMapTag()
+	{
+		if (!mapTag) display = true;
+		else
+		{
+			display = false;
+		}
+	}
+
 }

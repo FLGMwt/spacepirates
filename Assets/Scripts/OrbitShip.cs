@@ -29,13 +29,13 @@ public class OrbitShip : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	protected virtual void Update () 
 	{
 		Orbit();
 
 	}
 
-	void OnGUI()
+	protected virtual void OnGUI()
 	{
 		travelToPlanet = GUI.TextField(new Rect(5, 30, 100, 20), travelToPlanet, 11);
 		if (GUI.Button(new Rect(5, 55, 30, 20), "Go"))

@@ -17,9 +17,11 @@ public class MapCamera : MonoBehaviour
 
 
 	public Camera cam;
-	public List<MapObject> mapWaypoints = new List<MapObject>();
+	public List<MapObject> waypoints = new List<MapObject>();
 
 	public bool isMapShowing;
+	public int zoomStep;
+
 
 	void Awake()
 	{
@@ -30,6 +32,7 @@ public class MapCamera : MonoBehaviour
 	void Start () 
 	{
 		cam = GetComponent<Camera>();
+		UpdateWaypoints();
 	}
 	
 	// Update is called once per frame
@@ -43,6 +46,20 @@ public class MapCamera : MonoBehaviour
 				HideMap();
 			}
 		}
+
+		if (isMapShowing)
+		{
+			//manages camera zooms and clamps
+			float s = (-zoomStep * camera.orthographicSize) * 0.03f;
+			cam.orthographicSize += Input.GetAxis("Mouse ScrollWheel") * s;
+			if (camera.orthographicSize < 3f) {camera.orthographicSize = 3f;}
+			if (camera.orthographicSize > 30) {camera.orthographicSize = 30;}
+		}
+	}
+
+	public void UpdateWaypoints()
+	{
+		waypoints.Add(GameObject.Find("map_" + PlayerShip.Instance.target.name).GetComponent<MapObject>());
 	}
 
 	public void ShowMap()
